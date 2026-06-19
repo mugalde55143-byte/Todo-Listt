@@ -1,0 +1,53 @@
+class datos : public interfaz{
+private:
+    vector<string> lista;
+    string asunto;
+    int n, i, com;
+public:
+    void agregar_1_tarea(){
+        cout<<"Escriba la tarea que desea agregar: \n";
+        getline(cin,asunto);
+        lista.push_back(asunto);
+        cout<<"La tarea se agregó correctamente\n"<<endl;
+        cout<<endl;
+    }
+    void mostrar_tareas(){
+        n = 0;
+        cout << "\n==============================\n";
+        cout << "      TAREAS PENDIENTES       \n";
+        cout << "==============================\n";
+        cout<<endl;
+        for(string list : lista){
+            n++;
+            cout<<n<<". "<<list <<endl;
+        }
+    }
+    void agregar_n_tareas(){
+        cout << "Escriba S para Salir\n";
+        cout<<endl;
+        while(true){
+            cout << "Escriba la tarea #"<<i<<endl;;
+            getline(cin,asunto);
+            if(asunto != "S"){
+                lista.push_back(asunto);
+                i++;
+            }else{
+                cout << "Las tareas se registraron correctamnte\n"<<endl;
+                cout<<endl;
+            }
+        }
+    }
+    void eliminar_tareas(){
+        n = 0;
+        cout << "Escribe el número de la tarea que ya completaste?\n";
+        for(string list : lista){
+            n++;
+            cout<<n<<". "<<list <<endl;
+        }
+        cin >> com;
+        com = com - 1;
+        lista.erase(lista.begin() + com);
+        cout << "La tarea se eliminó con éxito"<<endl;
+        cout<<endl;
+    }
+};
