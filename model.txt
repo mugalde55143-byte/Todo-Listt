@@ -1,0 +1,35 @@
+int main() {
+    int op;
+    bool salida = false;
+    datos usuario;
+    
+    usuario.bienvenida();
+    while(salida == false){
+        usuario.menu();
+        cin >> op;
+        cin.ignore();
+        switch(op){
+            case 1:
+                usuario.agregar_1_tarea();
+                break;
+            case 2:
+                usuario.mostrar_tareas();
+                break;
+            case 3:
+                usuario.agregar_n_tareas();
+                break;
+            case 4:
+                usuario.eliminar_tareas();
+                break;
+            case 5:
+                usuario.exit();
+                salida = true;
+                break;
+            default:
+                usuario.error();
+                break;
+        }
+    }
+    return 0;
+}
+
